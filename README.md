@@ -4,7 +4,7 @@ This project performs an in-depth analysis of international air passenger traffi
 
 This repository serves as a personal project to develop and apply advanced data science and machine learning techniques, with a long-term vision of adapting this framework for epidemiological modeling.
 
-![International Passenger Volume Over Time](intl_flight_passengers_by_year_month.png)
+![International Passenger Volume Over Time](./results/intl_flight_passengers_by_year_month.png)
 
 ## 📈 Project Goals
 
