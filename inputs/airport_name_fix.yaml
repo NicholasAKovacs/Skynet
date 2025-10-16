@@ -1,0 +1,21 @@
+SEL:
+  new_code: 'GMP'
+  reason: 'IATA changed in 2001 when ICN opened. SEL is now a city code'
+TXL:
+  new_code: 'BER'
+  reason: 'Airport closed in and replaced with new BER airport in 2020'
+OSA:
+  new_code: 'KIX'
+  reason: 'International flights only from here in 2004. OSA renamed ITM which is domestic only'
+FBU:
+  new_code: 'OSL'
+  reason: 'Old Oslo, Norway airport until 1998'
+GEN:
+  new_code: 'OSL'
+  reason: 'Appears to be a mistake for ICAO code. WAC indicates its a Norway airport'
+NYC:
+  new_code: 'JFK'
+  reason: 'Assuming this is should be JFK since NYC is a city code and JFK is the main international airport'
+DTT:
+  new_code: 'DTW'
+  reason: 'Assuming this is should be DTW since DTT is a city code and DTW is the main international airport'
