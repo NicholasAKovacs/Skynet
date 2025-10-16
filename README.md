@@ -4,7 +4,7 @@ This project explores the dynamics of international air travel to and from the U
 
 From this foundation, the project serves as an open and collaborative space to apply a wide range of analytical techniques. It provides a real-world sandbox for anyone looking to develop their skills, progressing from classical machine learning and time-series forecasting to advanced deep learning architectures, including Graph Neural Networks (GNNs) for network science.
 
-![International Passenger Volume Over Time](./results/intl_flight_passengers_by_year_month.png)
+![Top airports and Trends](./results/data_intro/figures/top_airports_and_trends.png)
 
 ## 📈 Project Goals
 
