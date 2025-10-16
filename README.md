@@ -2,7 +2,7 @@
 
 This project performs an in-depth analysis of international air passenger traffic to and from the United States, spanning from 1990 to the present. The core goal is to understand the key drivers of air travel, model historical trends, and forecast future passenger volume. The analysis pays special attention to the significant impact of the COVID-19 pandemic on global travel patterns.
 
-This repository serves as a personal project to develop and apply advanced data science and machine learning techniques, with a long-term vision of adapting this framework for epidemiological modeling.
+This project serves as a launchpad for more advanced analyses and is open to contributions from anyone looking to enhance their skills in data science, statistics, machine learning, and deep learning.
 
 ![International Passenger Volume Over Time](./results/intl_flight_passengers_by_year_month.png)
 
@@ -13,6 +13,54 @@ This repository serves as a personal project to develop and apply advanced data 
 * **Time-Series Forecasting**: Build a model to forecast "expected" passenger volume and quantify the deviation caused by the COVID-19 pandemic.
 * **Predictive Modeling**: Use machine learning models to identify the key features (e.g., GDP, population, continent) that predict passenger traffic on a given route.
 * **Advanced Deep Learning**: Apply neural networks, and eventually Graph Neural Networks (GNNs), to model the entire air travel system as an interconnected network.
+
+---
+
+## 🔬 Research Questions
+
+This project aims to answer a series of questions, progressing from broad exploratory analysis to specific, advanced modeling tasks that build upon one another.
+
+### 1. Foundational & Exploratory Analysis
+*What are the fundamental patterns and major events in the data?*
+
+* **Long-Term Trends**: What are the historical trends in international air passenger traffic to and from the United States since 1990?
+* **Key Actors**: Which U.S. and foreign airports are the most significant gateways? Which airlines carry the most passengers?
+* **Seasonality & Geography**: How does passenger volume vary seasonally and across different continents?
+* **Pandemic Impact & Recovery**: Which continents or countries demonstrated the most resilience during the COVID-19 pandemic, returning to pre-pandemic volumes the fastest? Conversely, which have shown the slowest recovery? Are there any regions where traffic has not just recovered but exceeded pre-pandemic trends?
+
+---
+
+### 2. Predictive Modeling & Causal Inference
+*Can we build models to predict outcomes and understand the key drivers of air travel?*
+
+* **Pandemic Counterfactual**: **By how much did the actual passenger volume deviate from a pre-pandemic forecast?** Using a time-series model (e.g., Prophet or a Bayesian model) trained on 1990-2019 data, what was the full range of plausible "expected" passenger volumes for 2020-2024?
+* **Feature Importance**: Using tree-based models (e.g., Random Forest, XGBoost), which factors—economic (GDP, population), geographic (continent), or temporal (month)—are the most powerful predictors of passenger volume on a given route?
+* **Hierarchical Effects**: How does the relationship between a country's economic indicators and its passenger traffic vary across different continents? A Bayesian hierarchical model can provide robust estimates for these varying effects while quantifying our uncertainty.
+
+---
+
+### 3. Deep Learning for Time-Series Analysis
+*Can advanced neural network architectures capture more complex patterns in the data?*
+
+* **Forecasting with RNNs**: How accurately can a Recurrent Neural Network (RNN) or LSTM model forecast future demand for a specific route (e.g., ATL-LHR) compared to classical models, by learning from the historical sequence of monthly passenger data?
+* **Pattern Recognition with CNNs**: Can a 1D Convolutional Neural Network (CNN) be trained to automatically classify the "seasonality profile" of a given route (e.g., 'summer-peaking', 'winter holiday spike', 'stable business route') by learning the characteristic shapes in its time-series data?
+
+---
+
+### 4. Network Science with Graph Neural Networks (GNNs)
+*What can we learn by modeling the entire air travel system as an interconnected graph?*
+
+
+* **Node-Level Prediction**: Can a GNN predict which airports (nodes) are most likely to increase in importance and passenger volume based not just on their own history, but on the growth of the airports they are connected to?
+* **Edge-Level Prediction**: Can a GNN predict the future passenger traffic on a specific route (an edge) by learning from the features of the two connected airports and the overall structure of the network?
+* **Community Detection**: What are the natural clusters or "communities" of airports within the global travel network? Do these align with geographic continents or economic trade blocs?
+
+---
+
+### 5. Future Vision: Epidemiological Modeling
+*Can this air travel network be used as a substrate for modeling infectious disease spread?*
+
+* The ultimate goal is to leverage this passenger flow data to forecast the dissemination pathways of emerging pathogens. By combining the air travel graph with genomic, antigenic, and clinical surveillance data (e.g., country-level influenza-like illness rates), can a model predict the most likely routes of viral spread and identify countries at highest risk?
 
 ---
 
@@ -40,17 +88,38 @@ This analysis is built upon a foundation of several rich, open-source datasets:
 
 ---
 
-## 🚀 Future Work
+## 🚀 Future Work & Collaboration
 
-This project serves as a launchpad for more advanced analyses:
+The roadmap below outlines several exciting avenues for future development, progressing from data enrichment to cutting-edge deep learning applications.
 
-* **Advanced Time-Series Forecasting**: Implement a model using `Prophet` to include seasonality and external regressors (like GDP) for a more robust forecast.
-* **Deep Learning**: Build a PyTorch-based Multi-Layer Perceptron (MLP) to predict passenger volume and compare its performance to tree-based models like XGBoost.
-* **Graph Neural Networks (GNNs)**:
-    * Incorporate US domestic flight data to build a complete, dense air travel graph.
-    * Model airports as nodes and flight routes as edges.
-    * Use a GNN to predict future traffic on a specific route (edge prediction) or identify emerging hub airports (node prediction).
-* **Epidemiological Modeling**: The ultimate goal is to leverage this air travel network as a substrate to model the potential spread of infectious diseases, incorporating global influenza surveillance metrics (genomic, antigenic, and hospitalization data) from sources like the CDC and WHO.
+### 1. Data Expansion & Integration
+To build a powerful model, we need a comprehensive dataset. A primary goal is to integrate additional data sources for a multi-faceted view of global travel, its drivers, and its potential role in the international transmission of pathogens like influenza.
+
+* **Build a Complete U.S. Network**: Incorporate **U.S. domestic flight data** from the BTS to complement the international data, creating a complete and dense air travel graph for the United States.
+* **Create a Global Travel Graph**: Expand beyond U.S.-centric routes by integrating **global international flight data** from sources like OpenSky Network to model the entire worldwide system.
+* **Incorporate Land & Sea Travel**: Add data on cross-border travel at **U.S. land ports and seaports** to capture other major modes of international transit.
+* **Add Richer Indicators**: Integrate more diverse datasets from the **World Bank Open Data** and other sources, such as data on international trade, tourism expenditures, fuel prices, and global connectivity metrics.
+
+### 2. Advanced Predictive Modeling
+This involves moving beyond baseline models to apply more sophisticated techniques for forecasting and inference, providing excellent practice for anyone looking to sharpen their ML skills.
+
+* **Time-Series Forecasting**: Implement a robust forecasting model using **`Prophet`** or Bayesian methods to include seasonality and external regressors (like GDP) for a more accurate counterfactual analysis of the pandemic's impact.
+* **Gradient Boosting Models**: Utilize powerful tree-based models like **XGBoost** or **LightGBM** to identify the most important features driving passenger volume and benchmark their performance.
+* **Deep Learning with PyTorch**: Build and train a **Multi-Layer Perceptron (MLP)** to predict passenger volume, providing hands-on practice with core PyTorch concepts on large-scale tabular data.
+
+### 3. Network Science with Graph Neural Networks (GNNs)
+The most advanced modeling goal is to treat the entire air travel system as a complex, interconnected graph to uncover network effects.
+
+* **Graph Construction**: Model airports as **nodes** (with features like country, GDP, and passenger volume) and flight routes as **edges** (with features like passenger flow and number of carriers).
+* **Predictive Tasks**: Use a GNN (e.g., with PyTorch Geometric) to tackle advanced problems such as:
+    * **Edge Prediction**: Forecast future passenger traffic on a specific route.
+    * **Node Prediction**: Identify airports that are likely to grow in importance as global hubs.
+
+### 4. Capstone Application: Epidemiological Modeling
+The ultimate long-term vision is to leverage this global travel network as a substrate for modeling infectious disease spread, perfectly merging this project with real-world public health challenges.
+
+* Integrate global **influenza surveillance data** (genomic, antigenic, and clinical metrics like ILI rates and hospitalizations) from sources like the CDC and WHO.
+* Build a model that uses the air travel graph to forecast the most likely pathways of viral dissemination and identify countries at the highest risk from an emerging strain.
 
 ---
 
