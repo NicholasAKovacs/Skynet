@@ -1,8 +1,8 @@
 # Global Air Travel Analysis and Forecasting
 
-This project performs an in-depth analysis of international air passenger traffic to and from the United States, spanning from 1990 to the present. The core goal is to understand the key drivers of air travel, model historical trends, and forecast future passenger volume. The analysis pays special attention to the significant impact of the COVID-19 pandemic on global travel patterns.
+This project explores the dynamics of international air travel to and from the United States, from 1990 to the present. It begins by building a rich dataset that combines passenger volume with country-level economic, demographic, and geographic data to analyze historical trends and identify key drivers of travel. The analysis places a strong emphasis on quantifying the impact of the COVID-19 pandemic.
 
-This project serves as a launchpad for more advanced analyses and is open to contributions from anyone looking to enhance their skills in data science, statistics, machine learning, and deep learning.
+From this foundation, the project serves as an open and collaborative space to apply a wide range of analytical techniques. It provides a real-world sandbox for anyone looking to develop their skills, progressing from classical machine learning and time-series forecasting to advanced deep learning architectures, including Graph Neural Networks (GNNs) for network science.
 
 ![International Passenger Volume Over Time](./results/intl_flight_passengers_by_year_month.png)
 
