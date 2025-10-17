@@ -10,6 +10,29 @@ From this foundation, the project serves as an open and collaborative space to a
 
 ![Overall Passenger Volume](./results/data_intro/figures/total_passengers_per_month_per_continent_with_forecast.png)
 
+
+## ❓ Initial Observations & Next Questions
+
+The initial time-series analysis reveals several compelling trends, particularly regarding the differential impact and recovery from the COVID-19 pandemic across various regions. These observations serve as the foundation for the next stage of deeper, more targeted analysis.
+
+### 1. Disparate Regional Recoveries
+The post-2020 recovery has not been uniform across the globe. Our forecasts highlight several distinct patterns:
+
+* **Accelerated Growth**: Passenger volume to and from **Africa** has not only recovered but has significantly surpassed its pre-pandemic forecast.
+* **Rapid Recovery**: **North and South America** demonstrated a swift bounce-back and have largely returned to their forecasted levels.
+* **Lagging Recovery**: **Asia and Oceania** are showing the slowest recovery, still well below their pre-pandemic trend lines.
+* **Altered Seasonality**: **Europe** appears to have recovered to its forecasted summer peaks, but its traditional winter off-season troughs are now much deeper than before. Also, it does not seem **Asia and Oceania** have returned to their forecaseted seasonality. 
+
+This leads to our primary question: **What factors explain this significant disparity in recovery rates and patterns between continents?**
+
+### 2. Exploring Potential Drivers
+To understand the "why" behind these observations, the next phase of this project will focus on integrating new data to explore several hypotheses:
+
+* **Travel Restrictions**: Different countries imposed international travel bans of varying severity and duration. Can we find and integrate a dataset on these restrictions to see how they correlate with the observed recovery lags?
+* **Economic Factors**: Are the existing economic indicators (GDP, population) sufficient to explain these trends? What happens if we incorporate additional metrics, such as a country's reliance on tourism, inflation rates, or exchange rates?
+* **Network Dynamics**: How do domestic travel patterns influence international hubs? Would incorporating **U.S. domestic flight data** help explain why certain U.S. gateway airports recovered faster than others?
+* **Travel Costs**: How did airfare evolve during this period? Could a dataset of average ticket prices help explain the suppression or recovery of travel demand to certain regions?
+
 ## 📈 Project Goals
 
 * **Explore Historical Trends**: Analyze how international passenger volume has evolved over the past three decades.
