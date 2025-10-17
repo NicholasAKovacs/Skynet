@@ -6,7 +6,7 @@ From this foundation, the project serves as an open and collaborative space to a
 
 ![Top airports and Trends](./results/data_intro/figures/top_airports_and_trends.png)
 
-![Overall Passenger Volume](../results/data_intro/figures/total_passengers_per_month_per_continent_with_forecast.png)
+![Overall Passenger Volume](./results/data_intro/figures/total_passengers_per_month_per_continent_with_forecast.png)
 
 ## 📈 Project Goals
 
