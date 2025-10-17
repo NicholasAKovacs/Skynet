@@ -21,7 +21,7 @@ The post-2020 recovery has not been uniform across the globe. Our forecasts high
 * **Accelerated Growth**: Passenger volume to and from **Africa** has not only recovered but has significantly surpassed its pre-pandemic forecast.
 * **Rapid Recovery**: **North and South America** demonstrated a swift bounce-back and have largely returned to their forecasted levels.
 * **Lagging Recovery**: **Asia and Oceania** are showing the slowest recovery, still well below their pre-pandemic trend lines.
-* **Altered Seasonality**: **Europe** appears to have recovered to its forecasted summer peaks, but its traditional winter off-season troughs are now much deeper than before. Also, it does not seem **Asia and Oceania** have returned to their forecaseted seasonality. 
+* **Altered Seasonality**: **Europe** appears to have recovered to its forecasted summer peaks, but its traditional winter off-season troughs are now much deeper than before. Also, it does not seem **Asia and Oceania** have returned to their forecasted seasonality. 
 
 This leads to our primary question: **What factors explain this significant disparity in recovery rates and patterns between continents?**
 
