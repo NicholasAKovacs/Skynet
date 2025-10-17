@@ -6,6 +6,8 @@ From this foundation, the project serves as an open and collaborative space to a
 
 ![Top airports and Trends](./results/data_intro/figures/top_airports_and_trends.png)
 
+![Overall Passenger Volume](../results/data_intro/figures/total_passengers_per_month_per_continent_with_forecast.png)
+
 ## 📈 Project Goals
 
 * **Explore Historical Trends**: Analyze how international passenger volume has evolved over the past three decades.
@@ -70,7 +72,7 @@ This analysis is built upon a foundation of several rich, open-source datasets:
 
 * **[U.S. DOT T-100 International Market Data](https://www.opendatanetwork.com/dataset/datahub.transportation.gov/xgub-n9bw)**: The primary source for monthly passenger counts on international routes to/from the United States. Accessed via the Socrata Open Data API.
 * **[OurAirports Data](https://davidmegginson.github.io/ourairports-data/)**: A comprehensive database of global airports, used to enrich the flight data with geographic details like country codes, continents, and GPS coordinates.
-* **[World Bank Open Data](https://data.worldbank.org/)**: Provides country-level, year-appropriate economic and demographic indicators, such as GDP and population. Accessed via the `wbgapi` Python package.
+* **[World Bank Open Data](https://data.worldbank.org/indicator?tab=all)**: Provides country-level, year-appropriate economic and demographic indicators, such as GDP and population. Accessed via the `wbgapi` Python package.
 
 ---
 

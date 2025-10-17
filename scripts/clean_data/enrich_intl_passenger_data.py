@@ -4,7 +4,11 @@ import pycountry
 import yaml
 from pathlib import Path
 import traceback
+from typing import Optional
 from typing import Dict, List
+from myeia.api import API
+import os
+from dotenv import load_dotenv
 
 # --- CONSTANTS ---
 RAW_DATA_PATH = Path("./data/T100_International/t100_international_data_by_year.parquet")
@@ -18,7 +22,11 @@ WB_INDICATORS = {
     'NY.GDP.PCAP.CD': 'gdp_per_capita',
     'TG.VAL.TOTL.GD.ZS': 'trade_pct_gdp',
     'ST.INT.ARVL': 'tourism_arrivals',
-    'EP.PMP.JFPS.CD': 'jet_fuel_price'
+    'FP.CPI.TOTL.ZG': 'inflation_cp',
+    'IS.AIR.DPRT': 'air_departures',
+    'PA.NUS.FCRF': 'USD_exchange_rate',
+    'BM.TRF.PWKR.CD.DT': 'remittances_paid',
+    'BX.TRF.PWKR.CD.DT': 'remittances_received'
 }
 
 def load_and_clean_flight_data(file_path: Path, airport_corrections: Dict) -> pd.DataFrame:
@@ -155,61 +163,120 @@ def fetch_and_process_world_bank_data(df: pd.DataFrame, indicators: Dict[str, st
     df_wb.columns.name = None
     return df_wb
 
-def merge_world_bank_data(df_merged: pd.DataFrame, df_wb: pd.DataFrame) -> pd.DataFrame:
-    """Performs year-specific merges for USG and FG economic data."""
+def fetch_jet_fuel_prices(api_key: str) -> Optional[pd.DataFrame]:
+    """
+    Fetches monthly NY Harbor jet fuel spot prices and calculates an annual average.
+    """
+    if not api_key:
+        raise ValueError("EIA API key not found. Please check your .env file.")
+        
+    print("--- Fetching jet fuel price data using myeia route method ---")
+    
+    try:
+        api = API(api_key)
+
+        # https://www.eia.gov/dnav/pet/hist/EER_EPJK_PF4_RGC_DPGD.htm
+        series_id = "EER_EPJK_PF4_RGC_DPG"
+        
+        series_data = api.get_series_via_route(
+            route="petroleum/pri/spt",
+            series=series_id,
+            frequency="monthly"
+        )
+        
+        df_fuel_monthly = pd.DataFrame(series_data)
+        df_fuel_monthly.reset_index(inplace=True)
+        df_fuel_monthly.columns = ['date', 'jet_fuel_price']
+        
+        # Calculate the annual average price
+        df_fuel_monthly['year'] = df_fuel_monthly['date'].dt.year
+        df_fuel_annual = df_fuel_monthly.groupby('year')['jet_fuel_price'].mean().reset_index()
+        
+        print("Successfully fetched and processed jet fuel data.")
+        return df_fuel_annual
+
+    except ValueError as e:
+        print(f"  -> Jet fuel data fetching failed. The API returned no data. Error: {e}")
+        return None
+    except Exception as e:
+        print(f"  -> An unexpected error occurred while fetching jet fuel data: {e}")
+        return None
+
+def merge_external_data(df_merged: pd.DataFrame, df_wb: pd.DataFrame, df_jet_fuel: Optional[pd.DataFrame]) -> pd.DataFrame:
+    """Performs year-specific merges for all external data sources (World Bank, EIA)."""
     print("--- Performing final year-specific merges ---")
     
     # Ensure year columns have the same type
     df_merged['year'] = df_merged['year'].astype(int)
     df_wb['year'] = df_wb['year'].astype(int)
-
-    # Merge for foreign gateway
-    df_final = pd.merge(df_merged, df_wb, left_on=['fg_iso_country_alpha3', 'year'], right_on=['economy', 'year'], how='left')
-    df_final.rename(columns=WB_INDICATORS, inplace=True, errors='ignore') # Avoid renaming conflicts
-    df_final.rename(columns={v: f"fg_{v}" for v in WB_INDICATORS.values()}, inplace=True)
-    df_final.drop(columns=['economy'], inplace=True)
-
-    # Merge for US gateway
-    df_final = pd.merge(df_final, df_wb, left_on=['usg_iso_country_alpha3', 'year'], right_on=['economy', 'year'], how='left')
-    df_final.rename(columns=WB_INDICATORS, inplace=True, errors='ignore')
+    
+    # Merge World Bank data for the US gateway
+    # Now we build upon the df_final created in the step above
+    df_final = pd.merge(
+        df_merged, 
+        df_wb,
+        left_on=['usg_iso_country_alpha3', 'year'],
+        right_on=['economy', 'year'],
+        how='left'
+    )
+    # Rename the new columns with a '_usg' suffix
     df_final.rename(columns={v: f"usg_{v}" for v in WB_INDICATORS.values()}, inplace=True)
-    df_final.drop(columns=['economy'], inplace=True)
+    df_final.drop(columns=['economy'], inplace=True, errors='ignore')
+    
+    # Merge World Bank data for the foreign gateway
+    df_final = pd.merge(
+        df_final, 
+        df_wb,
+        left_on=['fg_iso_country_alpha3', 'year'],
+        right_on=['economy', 'year'],
+        how='left'
+    )
+    # Rename the new columns with a '_fg' suffix
+    df_final.rename(columns={v: f"fg_{v}" for v in WB_INDICATORS.values()}, inplace=True)
+    df_final.drop(columns=['economy'], inplace=True, errors='ignore')
+    
+    # Merge the jet fuel data if it exists
+    if df_jet_fuel is not None:
+        print("--- Merging jet fuel price data ---")
+        df_jet_fuel['year'] = df_jet_fuel['year'].astype(int)
+        df_final = pd.merge(df_final, df_jet_fuel, on='year', how='left')
     
     return df_final
 
 def main():
+    """Main function to orchestrate the data enrichment pipeline."""
+    load_dotenv()
+    EIA_API_KEY = os.getenv("EIA_API_KEY")
 
     with open(AIRPORT_NAME_FIX, 'r') as f:
         airport_corrections_dict = yaml.safe_load(f)
 
+    # Fetch all data sources first
     df_flights = load_and_clean_flight_data(RAW_DATA_PATH, airport_corrections_dict)
-
-    # reate the airport lookup table
     df_airports = create_airport_lookup()
-
+    df_jet_fuel = fetch_jet_fuel_prices(EIA_API_KEY)
+    
     # Merge airport data into flight data
     df_merged = merge_airport_data(df_flights, df_airports)
-
-    # Fetch and process World Bank data
+    
+    # Fetch and process World Bank data (requires df_merged to be created first)
     df_wb = fetch_and_process_world_bank_data(df_merged, WB_INDICATORS)
 
-    # Perform the final merges
-    df_final = merge_world_bank_data(df_merged, df_wb)
+    # Perform all final merges
+    df_final = merge_external_data(df_merged, df_wb, df_jet_fuel)
 
     # Display and save final result
     print("\n--- Final dataset with year-appropriate economic data ---")
-    display_cols = ['year', 'usg_apt', 'fg_apt', 'usg_gdp', 'fg_gdp', 'usg_population', 'fg_population']
+    display_cols = ['year', 'usg_apt', 'fg_apt', 'usg_gdp', 'fg_gdp', 'jet_fuel_price']
     print(df_final[display_cols].head())
 
     ENRICHED_OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     df_final.to_parquet(ENRICHED_OUTPUT_PATH)
     print(f"\nFinal enriched data saved to {ENRICHED_OUTPUT_PATH}")
-    print("\n--- SCRIPT COMPLETED SUCCESSFULLY ---")
 
 if __name__ == "__main__":
     try:
         main()
     except Exception as e:
         print("\n--- SCRIPT FAILED ---")
-        print(f"An error occurred: {e}")
         traceback.print_exc()
