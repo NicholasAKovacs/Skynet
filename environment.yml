@@ -31,6 +31,8 @@ dependencies:
   - azure-storage-common-cpp=12.10.0=h4bb41a7_3
   - azure-storage-files-datalake-cpp=12.12.0=h8b27e44_3
   - beautifulsoup4=4.14.2=pyha770c72_0
+  - binutils_impl_linux-64=2.44=hdf8817f_2
+  - binutils_linux-64=2.44=h4852527_2
   - bitarray=3.6.1=py313h07c4f96_1
   - bleach=6.2.0=pyh29332c3_4
   - bleach-with-css=6.2.0=h82add2a_4
@@ -48,9 +50,12 @@ dependencies:
   - certifi=2025.10.5=pyhd8ed1ab_0
   - cffi=2.0.0=py313hf01b4d8_0
   - charset-normalizer=3.4.3=pyhd8ed1ab_0
+  - cmdstan=2.35.0=hc66edfa_3
+  - cmdstanpy=1.2.5=pyhd8ed1ab_0
   - colorama=0.4.6=pyhd8ed1ab_1
   - comm=0.2.3=pyhe01879c_0
   - contourpy=1.3.3=py313h7037e92_2
+  - convertdate=2.4.0=pyhd8ed1ab_1
   - cpython=3.13.7=py313hd8ed1ab_100
   - cycler=0.12.1=pyhd8ed1ab_1
   - debugpy=1.8.17=py313h5d5ffb9_0
@@ -63,6 +68,8 @@ dependencies:
   - fqdn=1.5.1=pyhd8ed1ab_1
   - freetype=2.14.1=ha770c72_0
   - freexl=2.0.0=h9dce30a_2
+  - gcc_impl_linux-64=14.3.0=hd9e9e21_7
+  - gcc_linux-64=14.3.0=h298d278_12
   - geopandas=1.1.1=pyhd8ed1ab_1
   - geopandas-base=1.1.1=pyha770c72_1
   - geos=3.14.0=h480dda7_0
@@ -73,8 +80,11 @@ dependencies:
   - glog=0.7.1=hbabe93e_0
   - gmp=6.3.0=hac33072_2
   - greenlet=3.2.4=py313h7033f15_1
+  - gxx_impl_linux-64=14.3.0=he663afc_7
+  - gxx_linux-64=14.3.0=h95f728e_12
   - h11=0.16.0=pyhd8ed1ab_0
   - h2=4.3.0=pyhcf101f3_0
+  - holidays=0.81=pyhcf101f3_0
   - hpack=4.1.0=pyhd8ed1ab_0
   - httpcore=1.0.9=pyh29332c3_0
   - httpx=0.28.1=pyhd8ed1ab_0
@@ -82,6 +92,7 @@ dependencies:
   - icu=75.1=he02047a_0
   - idna=3.10=pyhd8ed1ab_1
   - importlib-metadata=8.7.0=pyhe01879c_1
+  - importlib_resources=6.5.2=pyhd8ed1ab_0
   - impyla=0.17.0=pyhd8ed1ab_2
   - ipykernel=6.30.1=pyh82676e8_0
   - ipython=9.6.0=pyhfa0c392_0
@@ -102,6 +113,7 @@ dependencies:
   - jupyter_server=2.17.0=pyhcf101f3_0
   - jupyter_server_terminals=0.5.3=pyhd8ed1ab_1
   - jupyterlab_pygments=0.3.0=pyhd8ed1ab_2
+  - kernel-headers_linux-64=3.10.0=he073ed8_18
   - keyutils=1.6.3=hb9d3cd8_0
   - kiwisolver=1.4.9=py313hc8edb43_1
   - krb5=1.21.3=h659f571_0
@@ -132,6 +144,7 @@ dependencies:
   - libfreetype=2.14.1=ha770c72_0
   - libfreetype6=2.14.1=h73754d4_0
   - libgcc=15.2.0=h767d61c_5
+  - libgcc-devel_linux-64=14.3.0=h85bb3a7_107
   - libgcc-ng=15.2.0=h69a702a_5
   - libgdal-core=3.11.4=habfead2_4
   - libgfortran=15.2.0=h69a702a_5
@@ -140,6 +153,7 @@ dependencies:
   - libgoogle-cloud=2.39.0=hdb79228_0
   - libgoogle-cloud-storage=2.39.0=hdbdcf42_0
   - libgrpc=1.73.1=h1e535eb_0
+  - libhwloc=2.12.1=default_h7f8ec31_1002
   - libhwy=1.3.0=h4c17acf_1
   - libiconv=1.18=h3b78370_2
   - libjpeg-turbo=3.1.0=hb9d3cd8_0
@@ -158,11 +172,13 @@ dependencies:
   - libprotobuf=6.31.1=h9ef548d_1
   - libre2-11=2025.08.12=h7b12aa8_1
   - librttopo=1.1.0=h96cd706_19
+  - libsanitizer=14.3.0=hd08acf3_7
   - libsodium=1.0.20=h4ab18f5_0
   - libspatialite=5.1.0=gpl_hcb59c51_118
   - libsqlite=3.50.4=h0c1763c_0
   - libssh2=1.11.1=hcf80075_0
   - libstdcxx=15.2.0=h8f9b012_5
+  - libstdcxx-devel_linux-64=14.3.0=h85bb3a7_107
   - libstdcxx-ng=15.2.0=h4852527_5
   - libthrift=0.22.0=h454ac66_1
   - libtiff=4.7.1=h8261f1e_0
@@ -173,10 +189,13 @@ dependencies:
   - libxml2=2.15.0=h26afc86_1
   - libxml2-16=2.15.0=ha9997c6_1
   - libxml2-devel=2.15.0=h26afc86_1
+  - libxslt=1.1.43=h711ed8c_1
   - libzlib=1.3.1=hb9d3cd8_2
+  - lxml=6.0.2=py313h4a16004_1
   - lz4=4.4.4=py313hdd09ace_1
   - lz4-c=1.10.0=h5888daf_1
   - lzo=2.10=h280c20c_1002
+  - make=4.4.1=hb9d3cd8_2
   - mapclassify=2.10.0=pyhd8ed1ab_1
   - markupsafe=3.0.3=py313h3dea7bd_0
   - matplotlib-base=3.10.6=py313h683a580_1
@@ -215,6 +234,7 @@ dependencies:
   - prometheus-cpp=1.3.0=ha5d0236_0
   - prometheus_client=0.23.1=pyhd8ed1ab_0
   - prompt-toolkit=3.0.52=pyha770c72_0
+  - prophet=1.1.7=py313hc4f07f7_1
   - psutil=7.1.0=py313h07c4f96_0
   - pthread-stubs=0.4=hb9d3cd8_1002
   - ptyprocess=0.7.0=pyhd8ed1ab_1
@@ -227,6 +247,7 @@ dependencies:
   - pycryptodome=3.23.0=py313h6123c0d_1
   - pygments=2.19.2=pyhd8ed1ab_0
   - pyjwt=2.10.1=pyhd8ed1ab_0
+  - pymeeus=0.5.12=pyhd8ed1ab_1
   - pyogrio=0.11.1=py313h8b61037_1
   - pyopensky=2.15=pyhd8ed1ab_0
   - pyparsing=3.2.5=pyhcf101f3_0
@@ -269,8 +290,12 @@ dependencies:
   - sqlalchemy=2.0.43=py313h07c4f96_0
   - sqlite=3.50.4=hbc0de68_0
   - stack_data=0.6.3=pyhd8ed1ab_1
+  - stanio=0.5.1=pyhd8ed1ab_1
   - statsmodels=0.14.5=py313h29aa505_1
+  - sysroot_linux-64=2.17=h0157908_18
   - tabulate=0.9.0=pyhd8ed1ab_2
+  - tbb=2022.2.0=hb60516a_1
+  - tbb-devel=2022.2.0=h74b38a2_1
   - terminado=0.18.1=pyh0d859eb_0
   - threadpoolctl=3.6.0=pyhecae5ae_0
   - thrift=0.20.0=py313h46c70d0_1
@@ -306,6 +331,9 @@ dependencies:
   - zstandard=0.25.0=py313h54dd161_0
   - zstd=1.5.7=hb8e6e7a_2
   - pip:
+      - backoff==2.2.1
+      - myeia==0.4.8
+      - opensky-api==1.3.0
       - socrata-py==1.1.13
       - sodapy==2.2.0
 prefix: /home/natti/miniforge3/envs/airtravel

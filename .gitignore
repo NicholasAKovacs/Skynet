@@ -1,4 +1,5 @@
 inputs/credentials.json
+temp/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

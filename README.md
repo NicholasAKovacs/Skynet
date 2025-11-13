@@ -1,5 +1,7 @@
 # Global Air Travel Analysis and Forecasting
 
+There are 2 data sources primarily used for the flight data. There is the T100 International dataset
+
 This project explores the dynamics of international air travel to and from the United States, from 1990 to the present. It begins by building a rich dataset that combines passenger volume with country-level economic, demographic, and geographic data to analyze historical trends and identify key drivers of travel. The analysis places a strong emphasis on quantifying the impact of the COVID-19 pandemic.
 
 From this foundation, the project serves as an open and collaborative space to apply a wide range of analytical techniques. It provides a real-world sandbox for anyone looking to develop their skills, progressing from classical machine learning and time-series forecasting to advanced deep learning architectures, including Graph Neural Networks (GNNs) for network science.

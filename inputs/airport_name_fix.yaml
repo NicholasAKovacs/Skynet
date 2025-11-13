@@ -19,3 +19,15 @@ NYC:
 DTT:
   new_code: 'DTW'
   reason: 'Assuming this is should be DTW since DTT is a city code and DTW is the main international airport'
+FRF:
+  new_code: 'FRA'
+  reason: 'Rhein-Main Air Base closed in 2005, changing to Frankfurt Airport (FRA)'
+A43:
+  new_code: 'ADQ'
+  reason: 'Kodiak Island seaplane base in Alaska switched to islands airport'
+PFN:
+  new_code: 'ECP'
+  reason: 'Old Panama City, FL airport code changed from PFN to ECP in 2010'
+ISN:
+  new_code: 'XWA'
+  reason: 'Wiliston North Dakota airport code changed from ISN to XWA in 2019'

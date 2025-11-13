@@ -1,0 +1,48 @@
+Field Name,Description
+Summaries,Summaries
+Passengers,On-Flight Market Passengers Enplaned
+Freight,On-Flight Market Freight Enplaned (pounds)
+Mail,On-Flight Market Mail Enplaned (pounds)
+Distance,Distance between airports (miles)
+Carrier,Carrier
+UniqueCarrier,"Unique Carrier Code. When the same code has been used by multiple carriers, a numeric suffix is used for earlier users, for example, PA, PA(1), PA(2). Use this field for analysis across a range of years."
+AirlineID,"An identification number assigned by US DOT to identify a unique airline (carrier). A unique airline (carrier) is defined as one holding and reporting under the same DOT certificate regardless of its Code, Name, or holding company/corporation."
+UniqueCarrierName,"Unique Carrier Name. When the same name has been used by multiple carriers, a numeric suffix is used for earlier users, for example, Air Caribbean, Air Caribbean (1)."
+UniqCarrierEntity,Unique Entity for a Carrier's Operation Region.
+CarrierRegion,Carrier's Operation Region. Carriers Report Data by Operation Region
+Carrier,"Code assigned by IATA and commonly used to identify a carrier. As the same code may have been assigned to different carriers over time, the code is not always unique. For analysis, use the Unique Carrier Code."
+CarrierName,Carrier Name
+CarrierGroup,Carrier Group Code. Used in Legacy Analysis
+CarrierGroupNew,Carrier Group New
+Origin,Origin
+OriginAirportID,"Origin Airport, Airport ID. An identification number assigned by US DOT to identify a unique airport. Use this field for airport analysis across a range of years because an airport can change its airport code and airport codes can be reused."
+OriginAirportSeqID,"Origin Airport, Airport Sequence ID. An identification number assigned by US DOT to identify a unique airport at a given point of time. Airport attributes, such as airport name or coordinates, may change over time."
+OriginCityMarketID,"Origin Airport, City Market ID. City Market ID is an identification number assigned by US DOT to identify a city market. Use this field to consolidate airports serving the same city market."
+Origin,Origin Airport Code
+OriginCityName,"Origin Airport, City Name"
+OriginState,"Origin Airport, State"
+OriginStateFips,"Origin Airport, State FIPS Code (U.S. Federal Information Processing Standard Codes)"
+OriginStateName,"Origin Airport, State Name"
+OriginCountry,"Origin Airport, Country"
+OriginCountryName,"Origin Airport, Country Name"
+OriginWac,"Origin Airport, World Area Code"
+Destination,Destination
+DestAirportID,"Destination Airport, Airport ID. An identification number assigned by US DOT to identify a unique airport. Use this field for airport analysis across a range of years because an airport can change its airport code and airport codes can be reused."
+DestAirportSeqID,"Destination Airport, Airport Sequence ID. An identification number assigned by US DOT to identify a unique airport at a given point of time. Airport attributes, such as airport name or coordinates, may change over time."
+DestCityMarketID,"Destination Airport, City Market ID. City Market ID is an identification number assigned by US DOT to identify a city market. Use this field to consolidate airports serving the same city market."
+Dest,Destination Airport Code
+DestCityName,"Dest Airport, City Name"
+DestState,"Destination Airport, State"
+DestStateFips,"Destination Airport, State FIPS Code (U.S. Federal Information Processing Standard Codes)"
+DestStateName,"Destination Airport, State Name"
+DestCountry,"Destination Airport, Country"
+DestCountryName,"Destination Airport, Country Name"
+DestWac,"Destination Airport, World Area Code"
+Time Period,Time Period
+Year,Year
+Quarter,Quarter (1-4)
+Month,Month
+Other,Other
+DistanceGroup,"Distance Intervals, every 500 Miles, for Flight Segment"
+Class,Service Class
+DataSource,"Source of Data (D=Domestic ,I=International)"

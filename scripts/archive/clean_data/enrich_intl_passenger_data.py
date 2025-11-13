@@ -152,7 +152,7 @@ def fetch_and_process_world_bank_data(df: pd.DataFrame, indicators: Dict[str, st
     df_long.sort_values(['economy', 'year'], inplace=True)
 
     # Interpolate and fill missing values
-    print("Filling missing economic data by interpolation...")
+    print("Filling countries missing economic data by year by interpolation...")
     df_long['value'] = df_long.groupby(['economy', 'series'])['value'].transform(
         lambda x: x.interpolate(method='linear', limit_direction='both').bfill().ffill()
     )
@@ -243,6 +243,31 @@ def merge_external_data(df_merged: pd.DataFrame, df_wb: pd.DataFrame, df_jet_fue
     
     return df_final
 
+
+# def clean_dataset(df: pd.DataFrame) -> pd.DataFrame:
+#     """Final cleaning steps on the enriched dataset."""
+#     print("--- Performing final dataset cleaning ---")
+#     df.loc[df.FREIGHT.isna(), 'FREIGHT'] = 0
+#     df.loc[(df.UNIQUE_CARRIER_NAME == 'Executive Airlines') & (df.CARRIER.isna()), 'CARRIER'] = 'OW'
+#     df['ORIGIN_COUNTRY'] = df['ORIGIN_COUNTRY'].cat.add_categories(['NA'])
+#     df.loc[df.ORIGIN_CITY_NAME == 'Berlin, Berlin', 'ORIGIN_COUNTRY'] = 'DE'
+#     df.loc[df.ORIGIN_CITY_NAME == 'Prague, Czechoslovakia', 'ORIGIN_COUNTRY'] = 'CZ'
+#     df.loc[df.ORIGIN_CITY_NAME == 'Windhoek, Namibia', 'ORIGIN_COUNTRY'] = 'NA'
+#     df['DEST_COUNTRY'] = df['DEST_COUNTRY'].cat.add_categories(['NA'])
+#     df.loc[df.DEST_CITY_NAME== 'Berlin, Berlin', 'DEST_COUNTRY'] = 'DE'
+#     df.loc[df.DEST_CITY_NAME == 'Prague, Czechoslovakia', 'DEST_COUNTRY'] = 'CZ'
+#     df.loc[df.DEST_CITY_NAME.isin(['Windhoek, Namibia', 'Walvis Bay, Namibia', 'Ondangwa, Namibia']), 'DEST_COUNTRY'] = 'NA'
+
+#     df_cleaned = df.dropna(subset=[
+#         'AIRLINE_ID', 'ORIGIN_CITY_NAME', 'DEST_CITY_NAME',
+#         'origin_airport_name', 'dest_airport_name',
+#         'origin_iso_country_alpha3', 'dest_iso_country_alpha3'
+#     ]).copy()
+
+#     print(f"Dropped {len(df) - len(df_cleaned)} rows with missing data, most (all?) of these rows are for flights with few passengers.")
+#     return df_cleaned
+
+
 def main():
     """Main function to orchestrate the data enrichment pipeline."""
     load_dotenv()
@@ -264,6 +289,10 @@ def main():
 
     # Perform all final merges
     df_final = merge_external_data(df_merged, df_wb, df_jet_fuel)
+
+    # print(df_final.columns)
+
+    # df_final = clean_dataset(df_final)
 
     # Display and save final result
     print("\n--- Final dataset with year-appropriate economic data ---")
