@@ -4,12 +4,11 @@ This project explores the dynamics of international air travel to and from the U
 
 From this foundation, the project serves as an open and collaborative space to apply a wide range of analytical techniques. It provides a real-world sandbox for anyone looking to develop their skills, progressing from classical machine learning and time-series forecasting to advanced deep learning architectures, including Graph Neural Networks (GNNs) for network science.
 
-[Explore the Data in `data_intro.ipynb`](./notebooks/data_intro.ipynb)
 
-![Top airports and Trends](./results/data_intro/figures/top_airports_and_trends.png)
-
-![Overall Passenger Volume](./results/data_intro/figures/total_passengers_per_month_per_continent_with_forecast.png)
-
+[Explore the Data in `domestic_and_international_travel_data_exploration.ipynb`](./notebooks/domestic_and_international_travel_data_exploration.ipynb)
+[Incoming vs outdoing international passenger analysis `international_incoming_vs_outgoing.ipynb`](./notebooks/international_incoming_vs_outgoing.ipynb)
+[Expore the seasonality metrics in `seaonality.ipynb`](./notebooks/seasonality.ipynb)
+[This is being deprecated, since the T100 International dataset isn't as good as the T100 Market dataset: `data_intro.ipynb`](./notebooks/data_intro.ipynb)
 
 ## ❓ Initial Observations & Next Questions
 
