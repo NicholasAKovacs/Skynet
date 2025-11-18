@@ -6,8 +6,11 @@ From this foundation, the project serves as an open and collaborative space to a
 
 
 [Explore the Data in `domestic_and_international_travel_data_exploration.ipynb`](./notebooks/domestic_and_international_travel_data_exploration.ipynb)
+
 [Incoming vs outdoing international passenger analysis `international_incoming_vs_outgoing.ipynb`](./notebooks/international_incoming_vs_outgoing.ipynb)
+
 [Expore the seasonality metrics in `seaonality.ipynb`](./notebooks/seasonality.ipynb)
+
 [This is being deprecated, since the T100 International dataset isn't as good as the T100 Market dataset: `data_intro.ipynb`](./notebooks/data_intro.ipynb)
 
 ## ❓ Initial Observations & Next Questions
