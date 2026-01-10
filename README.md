@@ -1,10 +1,12 @@
 # ✈️ SkyNet: Global Air Travel Analysis & Forecasting
 
-> **Project Origin:** This project was initiated in October 2025 during the U.S. government shutdown furlough. It continues to be actively developed as a personal research project in my free time.
+> **Project Origin:** I began this project in October 2025 as a furloughed government employee during the U.S. government shutdown. It continues to be actively developed as a personal research project in my free time.
 
 **SkyNet** models international air travel to/from the United States (1990–Present) by enriching aviation data with global economic and demographic indicators. The project quantifies the impact of COVID-19 and forecasts future connectivity.
 
 > **Vision:** A sandbox for developing **Graph Neural Networks (GNNs)** to model the global transportation network as a substrate for **epidemiological forecasting** (predicting disease spread via passenger flow).
+
+![Global Passenger Forecast](results/domestic_international_travel_data_exploration/figures/total_passengers_per_month_continent_breakdown_with_forecast.png)
 
 ---
 
