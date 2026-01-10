@@ -30,7 +30,7 @@
 
 ---
 
-## 📓 Repository Structure
+## 📓 Reports
 
 * **[`domestic_and_international_travel_data_exploration.ipynb`](notebooks/domestic_and_international_travel_data_exploration.ipynb)**: Primary EDA, trend analysis, and bias discovery.
 * **[`international_incoming_vs_outgoing.ipynb`](notebooks/international_incoming_vs_outgoing.ipynb)**: Analysis of net passenger deficits and migration signals.
