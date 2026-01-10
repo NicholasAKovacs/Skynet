@@ -27,6 +27,7 @@
 | **2** | **Predictive Modeling** (Counterfactual COVID-19 forecasting) | 🔄 In Progress |
 | **3** | **Deep Learning** (LSTM/MLP vs. Classical Regression) | 🔜 Next Step |
 | **4** | **Network Science** (GNNs for node/edge prediction) | 🚀 Future Goal |
+| **5** | **Biothreat Surveillance** (Integrate protein embeddings & epidemiological data) | 🦠 Aspirational Goal |
 
 ---
 
